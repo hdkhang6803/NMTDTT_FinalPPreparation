@@ -4,8 +4,7 @@
 
 const double pi = 3.14159;
 
-
-
+//Time complexity: O(1)
 double calculateUnionArea(int x1, int y1, int x2, int y2, int radius) {
     double distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
     double circle_area = pi * radius * radius;
