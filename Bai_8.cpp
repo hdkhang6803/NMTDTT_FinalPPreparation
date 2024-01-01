@@ -3,6 +3,9 @@
 
 using namespace std;
 
+// Do phuc tap thoi gian: O(N^N)
+// Do phuc tap khong gian: O(N^2)
+
 bool isSafe(vector<vector<char>>& board, int row, int col, int n) {
     // Check if there is any queen in the same column
     for (int i = 0; i < row; i++) {
@@ -34,13 +37,13 @@ void solveNQueens(vector<vector<char>>& board, int row, int n, int queensLeft, i
         count++;
 
         // Print the board
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                cout << board[i][j];
-            }
-            cout << endl;
-        }
-        cout << endl;
+        // for (int i = 0; i < n; i++) {
+        //     for (int j = 0; j < n; j++) {
+        //         cout << board[i][j];
+        //     }
+        //     cout << endl;
+        // }
+        // cout << endl;
 
         return;
     }
@@ -79,6 +82,9 @@ int main() {
 
     return 0;
 }
+
+// lưu ít hơn:
+
 
 // cai tien bang branch and bound
 

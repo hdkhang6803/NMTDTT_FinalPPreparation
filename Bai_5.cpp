@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+// Do phuc tap: O(n + m) (KMP)
+
 // Function to compute the Longest Proper Prefix which is also Suffix (LPS) array
 std::vector<int> computeLPS(const std::string& pattern) {
     int len = pattern.length();
@@ -76,6 +78,16 @@ int main() {
     return 0;
 }
 
+//     // BEGIN: ed8c6549bwf9
+//     // Time complexity: O(n + m), where n is the length of string A and m is the length of string B.
+//     // The hash values of both strings are calculated in O(n + m) time.
+//     // Sliding the window through string A takes O(n) time.
+//     // Overall, the time complexity is dominated by the calculation of hash values, which is O(n + m).
+
+//     // Space complexity: O(1)
+//     // The algorithm uses a constant amount of extra space to store the hash values, power, and occurrences vector.
+//     // Therefore, the space complexity is O(1).
+//     // END: ed8c6549bwf9
 
 // cach khac: dung hashing
 
