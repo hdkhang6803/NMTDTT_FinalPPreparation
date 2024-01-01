@@ -6,6 +6,8 @@ using namespace std;
 
 const long long INF = numeric_limits<long long>::max();
 
+// Do phuc tap: O(n)
+
 struct Point {
     int x, y;
     Point() {}
@@ -71,4 +73,4 @@ int main() {
     return 0;
 }
 
-// ternary search
+// bien the 

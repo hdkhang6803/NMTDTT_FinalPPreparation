@@ -44,4 +44,4 @@ int main() {
 }
 
 
-// khong phai hinh vuong nua ?
+// Bien the: khong phai hinh vuong nua ?

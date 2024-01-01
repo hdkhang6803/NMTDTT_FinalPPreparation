@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 
+// Do phuc tap: O(m * n)
+
 int largestSquareArea(std::vector<std::vector<int>>& matrix) {
     int m = matrix.size();
     int n = matrix[0].size();
