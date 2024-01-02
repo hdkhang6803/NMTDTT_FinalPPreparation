@@ -48,7 +48,7 @@ int BinarySearch(vector<int> a, int x){
         else hi = m - 1;
     }
     return -1;
-}#include "utils.h"
+}
 
 
 // Function to check if a number is prime
@@ -68,6 +68,7 @@ bool isPrime(int num) {
 // Function to generate prime numbers up to n using Sieve of Eratosthenes
 std::vector<bool> generatePrimes(int n) {
     std::vector<bool> isPrime(n + 1, true);
+    isPrime[0] = isPrime[1] = false;
     
     for (int p = 2; p * p <= n; p++) {
         if (isPrime[p]) {
