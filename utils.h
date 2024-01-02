@@ -5,6 +5,12 @@
 using namespace std;
 
 #define ULLONG unsigned long long int 
+
+struct Point {
+    int x;
+    int y;
+};
+
 int gcd(int a, int b);
 int upper(vector<int> a, int x, int lo, int hi);
 int lower(vector<int> a, int x, int lo, int hi);
@@ -41,4 +47,4 @@ public:
     }
 };
 
-
+int checkOnLine(Point p1, Point p2, Point p);

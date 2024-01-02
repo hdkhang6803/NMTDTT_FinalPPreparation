@@ -77,6 +77,12 @@ std::vector<bool> generatePrimes(int n) {
             }
         }
     }
-    
     return isPrime;
+}
+
+int checkOnLine(Point p1, Point p2, Point p){
+    int res = (p.y - p1.y) * (p2.x - p1.x) - (p2.y - p1.y)*(p.x - p1.x);
+    if (res == 0) return 0;
+    else if (res > 0) return 1;
+    else return -1;
 }
