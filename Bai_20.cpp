@@ -55,7 +55,7 @@ int main() {
         int cnt = 0;
         for (int x = 1; x <= n; x++){
             if (used[x]) continue;
-            if (cnt == y / fact[n - i - 1]){
+            if (cnt == y / fact[n - i - 1]) {
                 per.push_back(x);
                 used[x] = true;
                 break;

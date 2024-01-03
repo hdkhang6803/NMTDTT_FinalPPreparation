@@ -99,3 +99,73 @@ int main() {
     cout << "The smallest number divisible by " << n << " is: " << better_findM(n) << endl;
     return 0;
 }
+
+
+
+// #include <bits/stdc++.h>
+// #define ll long long
+// #define LEN 9
+// #define fi first
+// #define se second
+// #define fu(i,a,b) for(ll i=a;i<=b;i++)
+// #define fd(i,a,b) for(ll i=a;i>=b;i--)
+// using namespace std;
+
+// ll f[LEN+5][2][105] , n;
+
+// ll dp(ll idx , ll num , ll sur)
+// {
+//     if(sur == 0)
+//         return f[idx][num][sur] = idx;
+//     if(idx > LEN)
+//         return f[idx][num][sur] = 0;
+    
+//     if(f[idx][num][sur] != -1)
+//         return f[idx][num][sur];
+    
+//     ll res = LEN+1;
+//     fu(nextNum,0,1)
+//     {
+//         ll temp = dp(idx+1 , nextNum , (sur*10 + nextNum) % n);
+//         if(temp != 0)
+//             res = min(res , temp);
+//     }
+//     if(res == LEN+1)
+//         res = 0;
+    
+//     return f[idx][num][sur] = res;
+// }
+
+// ll solve()
+// {
+//     if(dp(1 , 1 , 1%n) == 0)
+//         return -1;
+    
+//     ll idx = 1 , num = 1 , sur = 1%n , finalRes = 1;
+//     while (sur != 0)
+//     {
+//         ll nextNum = -1 , numDigit = LEN + 1;
+//         fu(i,0,1)
+//         {
+//             if(f[idx+1][i][(sur*10 + i) % n] > 0 && f[idx+1][i][(sur*10 + i) % n] < numDigit)
+//             {
+//                 numDigit = f[idx+1][i][(sur*10 + i) % n];
+//                 nextNum = i;
+//             }
+//         }
+
+//         finalRes = finalRes*10 + nextNum;
+//         idx++;
+//         sur = (sur*10 + nextNum) % n;
+//     }
+//     return finalRes;
+    
+// }
+
+// int main()
+// {
+//     cin >> n;
+//     memset(f , -1 , sizeof(f));
+
+//     cout << solve();
+// }

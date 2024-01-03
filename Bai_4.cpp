@@ -1,64 +1,67 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "utils.h"
+
+using namespace std;
 
 // Phuong phap: dem bang Merge sort
 // Do phuc tap: O(nlog(n))
 
-long long merge(std::vector<int>& arr, int left, int mid, int right) {
-    std::vector<int> temp(right - left + 1);
-    int i = left, j = mid + 1, k = 0;
-    long long count = 0;
+// long long merge(std::vector<int>& arr, int left, int mid, int right) {
+//     std::vector<int> temp(right - left + 1);
+//     int i = left, j = mid + 1, k = 0;
+//     long long count = 0;
 
-    while (i <= mid && j <= right) {
-        if (arr[i] > arr[j]) {
-            count += mid - i + 1;
-            temp[k++] = arr[j++];
-        } else {
-            temp[k++] = arr[i++];
-        }
-    }
+//     while (i <= mid && j <= right) {
+//         if (arr[i] > arr[j]) {
+//             count += mid - i + 1;
+//             temp[k++] = arr[j++];
+//         } else {
+//             temp[k++] = arr[i++];
+//         }
+//     }
 
-    while (i <= mid) {
-        temp[k++] = arr[i++];
-    }
+//     while (i <= mid) {
+//         temp[k++] = arr[i++];
+//     }
 
-    while (j <= right) {
-        temp[k++] = arr[j++];
-    }
+//     while (j <= right) {
+//         temp[k++] = arr[j++];
+//     }
 
-    std::copy(temp.begin(), temp.end(), arr.begin() + left);
+//     std::copy(temp.begin(), temp.end(), arr.begin() + left);
 
-    return count;
-}
+//     return count;
+// }
 
-long long mergeSort(std::vector<int>& arr, int left, int right) {
-    long long count = 0;
+// long long mergeSort(std::vector<int>& arr, int left, int right) {
+//     long long count = 0;
 
-    if (left < right) {
-        int mid = left + (right - left) / 2;
-        count += mergeSort(arr, left, mid);
-        count += mergeSort(arr, mid + 1, right);
-        count += merge(arr, left, mid, right);
-    }
+//     if (left < right) {
+//         int mid = left + (right - left) / 2;
+//         count += mergeSort(arr, left, mid);
+//         count += mergeSort(arr, mid + 1, right);
+//         count += merge(arr, left, mid, right);
+//     }
 
-    return count;
-}
+//     return count;
+// }
 
-int main() {
-    int n;
-    std::cin >> n;
+// int main() {
+//     int n;
+//     std::cin >> n;
 
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> arr[i];
-    }
+//     std::vector<int> arr(n);
+//     for (int i = 0; i < n; i++) {
+//         std::cin >> arr[i];
+//     }
 
-    long long count = mergeSort(arr, 0, n - 1);
-    std::cout << count << std::endl;
+//     long long count = mergeSort(arr, 0, n - 1);
+//     std::cout << count << std::endl;
 
-    return 0;
-}
+//     return 0;
+// }
 
 // ----------------------------------------------------------------------------------------------------------------
 

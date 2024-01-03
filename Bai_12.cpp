@@ -25,10 +25,10 @@ void solve(int n) {
         int x = min(a, b);
         int y = max(a, b);
 
-        cout << x << " " << x << "\n";
-        cout << x + y << " " << 0 << "\n";
-        cout << 2 * x << " " << x + y << "\n";
-        cout << 2 * x + y << " " << y << "\n";
+        cout << 0 << " " << 0 << "\n";
+        cout << x << " " << y << "\n";
+        cout << x + y << " " << y-x << "\n";
+        cout << y << " " << -x << "\n";
         
     }
 }
@@ -45,3 +45,5 @@ int main() {
 
 
 // Bien the: khong phai hinh vuong nua ?
+
+// Bien the: dem so luong hinh vuong

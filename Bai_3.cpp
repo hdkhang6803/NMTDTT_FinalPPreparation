@@ -47,7 +47,7 @@ pair<int, int> solve(vector<pair<long long, int>> a, vector<pair<long long, int>
                         }
                     }
                 }
-            }else{
+            } else {
                 int pos = it - b.begin() - 1;
                 if (abs(b[pos].first + a[i].first) < minDiff){
                     minDiff = abs(b[pos].first + a[i].first);

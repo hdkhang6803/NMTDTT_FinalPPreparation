@@ -43,50 +43,53 @@ using namespace std;
 
 // ----------------------------------------------------------------------------------------------------------------
 
-// Do phuc tap: O(n^2) + O(nlog(log(n)))
+// Do phuc tap: O(n^2) + O(nlog(log(n))) 
+// Can be reduced to O(n) by constructing the primes only array
 
 // Function to calculate gn
-int calculateGn(int n, vector<bool> &primesVector) {
-    int count = 0;
-    cout << "Dang xet n = " << n << endl;
-    for (int p = 2; p <= n; p++) {
-        int q = 2 * n - p;
+// int calculateGn(int n, vector<bool> &primesVector) {
+//     int count = 0;
+//     cout << "Dang xet n = " << n << endl;
+//     for (int p = 2; p <= n; p++) {
+//         int q = 2 * n - p;
 
-        if (primesVector[p] == 1 && primesVector[q] == 1) {
-            count++;
-            cout << p << ' ' << q << endl;
-        }
+//         if (primesVector[p] == 1 && primesVector[q] == 1) {
+//             count++;
+//             cout << p << ' ' << q << endl;
+//         }
         
-    }
+//     }
 
-    return count;
-}
+//     return count;
+// }
 
-// Function to calculate fn
-int calculateFn(int n, vector<bool> &primesVector) {
-    int sum = 0;
-    for (int i = 2; i <= n; i++) {
-        sum += calculateGn(i, primesVector);
-    }
-    return sum;
-}
+// // Function to calculate fn
+// int calculateFn(int n, vector<bool> &primesVector) {
+//     int sum = 0;
+//     for (int i = 2; i <= n; i++) {
+//         sum += calculateGn(i, primesVector);
+//     }
+//     return sum;
+// }
 
-int main() {
-    int n;
-    cin >> n;
+// int main() {
+//     int n;
+//     cin >> n;
 
     
-    vector<bool> primesVector = generatePrimes(2 * n);
+//     vector<bool> primesVector = generatePrimes(2 * n);
 
-    int result = calculateFn(n, primesVector);
-    cout << result << endl;
-    return 0;
-}
+//     int result = calculateFn(n, primesVector);
+//     cout << result << endl;
+//     return 0;
+// }
 
 // ------------------------------------------------------
 
-// Phuong phap khac ngoai cach tinh gn va fn:
+// Do phuc tap: O(n^2 / log2(n))
 
+// Phuong phap khac ngoai cach tinh gn va fn:
+int cnt = 0;
 int main() {
     int n;
     cin >> n;
@@ -94,7 +97,7 @@ int main() {
     vector<bool> primesVector = generatePrimes(2 * n);
     vector<int> primes;
     
-    for (int i = 0; i < primesVector.size(); i++) {
+    for (int i = 2; i <= 2 * n; i++) {
         if (primesVector[i] == 1) {
             primes.push_back(i);
         }
@@ -106,7 +109,10 @@ int main() {
             int cur = primes[i] + primes[j];
             if (cur % 2 == 0 && cur <= 2 * n){
                 g[cur / 2]++;
+                cnt++;
             }
+
+
         }
     }
 
@@ -115,6 +121,6 @@ int main() {
         result += g[i];
     }
 
-    cout << result << endl;
+    cout << result << ' ' << cnt << endl;
     return 0;
 }
