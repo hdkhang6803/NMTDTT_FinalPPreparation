@@ -61,6 +61,7 @@
         "string": "cpp",
         "unordered_map": "cpp",
         "xhash": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "functional": "cpp"
     }
 }

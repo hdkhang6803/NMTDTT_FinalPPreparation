@@ -33,11 +33,11 @@ int N2_maxClustersWeight (int k, int n, int m, vector<pair<int,int>> cluster){
     vector<vector<int>> dp(cluster.size() + 1, vector<int>(m + 1, 0));
     for (int i = 1; i <= k; i++){
         for (int j = 0; j <= m; j++){
-            if (i <= j + n){ // Số lượng nhóm a đã chọn không quá n
+            if (i <= j + n){ // Vị trí đang xét tới vẫn còn nằm trong vùng tối ưu để chọn a
                 if (j - 1 >=0 && i == j){ //Các đỉnh đã xét bằng với số đỉnh nhóm b đã chọn
                     dp[i][j] = max(dp[i][j], dp[i-1][j-1] + cluster[i-1].second); //Vậy trạng thái khi xét đỉnh u - 1 phải chọn thêm nhóm b
                 }
-                else if( i > j) // 0 < i - j <= n: đã có chọn b nhưng ko suy luận thêm được thông tin gì
+                else if( i > j) // 0 < i - j <= n: đã có chọn b nhưng chưa vượt quá cluster tối ưu để chọn a => làm gì cũng đc
                 {
                     if (j > 0){
                         dp[i][j] = max(dp[i][j], dp[i-1][j-1] + cluster[i-1].second);
@@ -46,7 +46,7 @@ int N2_maxClustersWeight (int k, int n, int m, vector<pair<int,int>> cluster){
                     dp[i][j] = max(dp[i][j], dp[i-1][j]);
                 }
             }
-            else{ //i > j + n: đã chọn đủ nhóm a => không thêm nhóm a vào nữa
+            else{ //i > j + n: // Vị trí đang xét tới vẫn còn ra ngoài vùng tối ưu để chọn a (vượt quá n cluster đầu tiên) => ko chọn a vào nữa
                 if(i - 1 >= 0){
                     dp[i][j] = max(dp[i][j], dp[i-1][j-1] + cluster[i-1].second);
                 }

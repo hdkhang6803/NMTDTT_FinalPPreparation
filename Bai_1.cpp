@@ -73,6 +73,21 @@ int findMaxGCD(int arr[], int n, int k)
     return 1;
 } 
 
+// //Using sparseTable
+int findMaxGCD_ST(vector<int> a, int n, int k){
+    SparseTable<int> st(a, [](int x, int y){
+        return gcd(x, y);
+    });
+
+    int ans = 0;
+    for (int i = 0; i < n - k + 1; i++){
+        int cur = st.query(i, i + k - 1);
+        if (cur > ans) ans = cur;
+    }
+    cout << ans << '\n';
+    return 0;
+}
+
 int main() {
     int n, k;
     std::cout << "Enter the number of elements in the array: ";
@@ -89,6 +104,8 @@ int main() {
     cout << "Naive maximum gcd: " << naive_findLargestGCDSubarray(arr, k) << endl;
 
     cout << "Maximum GCD of non-consecutive elements: " << findMaxGCD(arr.data(), n, k) << endl;
+
+    cout << "Maximum GCD of non-consecutive elements (using sparse table): " << findMaxGCD_ST(arr, n, k) << endl;
 
     return 0;
 }
