@@ -60,7 +60,7 @@ std::string better_findM(int n) {
         // cout << residue << " " << digit << " " << parent << endl;
         
         count ++;
-        if (parents.find(residue) != parents.end()) {
+        if (parent.find(residue) != parents.end(s)) {
             continue;
         }
 

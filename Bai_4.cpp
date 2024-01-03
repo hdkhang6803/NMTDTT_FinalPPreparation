@@ -68,41 +68,41 @@ using namespace std;
 // Phuong phap: su dung binary indexed tree + anh xa gia tri (do ai co the am)
 // O(logn)
 
-// int countInversePairs(vector<int>& nums) {
-//     int n = nums.size();
-//     vector<int> sortedNums = nums;
-//     sort(sortedNums.begin(), sortedNums.end());
+int countInversePairs(vector<int>& nums) {
+    int n = nums.size();
+    vector<int> sortedNums = nums;
+    sort(sortedNums.begin(), sortedNums.end());
 
-//     BIT bit(n);
-//     vector<int> mapping(n);
+    BIT bit(n);
+    vector<int> mapping(n);
 
-//     for (int i = 0; i < n; i++) {
-//         mapping[i] = lower_bound(sortedNums.begin(), sortedNums.end(), nums[i]) - sortedNums.begin() + 1;
-//     }
+    for (int i = 0; i < n; i++) {
+        mapping[i] = lower_bound(sortedNums.begin(), sortedNums.end(), nums[i]) - sortedNums.begin() + 1;
+    }
 
-//     int count = 0;
-//     for (int i = n - 1; i >= 0; i--) {
-//         count += bit.query(mapping[i] - 1);
-//         bit.update(mapping[i], 1);
-//     }
+    int count = 0;
+    for (int i = n - 1; i >= 0; i--) {
+        count += bit.query(mapping[i] - 1);
+        bit.update(mapping[i], 1);
+    }
 
-//     return count;
-// }
+    return count;
+}
 
-// int main() {
-//     int n;
-//     cin >> n;
+int main() {
+    int n;
+    cin >> n;
 
-//     vector<int> nums(n);
-//     for (int i = 0; i < n; i++) {
-//         cin >> nums[i];
-//     }
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
 
-//     int result = countInversePairs(nums);
-//     cout << result << endl;
+    int result = countInversePairs(nums);
+    cout << result << endl;
 
-//     return 0;
-// }
+    return 0;
+}
 
 
 // Bien the: có thêm k: cặp số ai và aj trong dãy thỏa điều kiện i < j và ai > aj và j - i <= k

@@ -32,8 +32,8 @@ bool DP_isMatch(string s, string p) {
                 dp[i][j] = dp[i][j - 2];  //Tính luôn trường hợp kí tự dp[0][j-1] bị xóa đi do ảnh hưởng của * ở dp[0][j]
                 if (p[j - 2] == '.' || p[j - 2] == s[i - 1]) { //Nếu ký tự trước đó là '.' hoặc khớp với ký tự hiện tại của s
                     dp[i][j] = dp[i][j] || dp[i - 1][j];  //Kết quả phụ thuộc vào 2 trường hợp: 
-                                                          //1. Ký tự trước đó bị xóa đi (dp[i][j-2])
-                                                          //2. Ký tự trước đó không bị xóa đi và phụ thuộc vào kết quả so khớp i-1 ký tự đầu của s (dp[i-1][j])
+            //   1. Ký tự trước đó bị xóa đi (dp[i][j-2])
+            //   2. Ký tự trước đó không bị xóa đi và phụ thuộc vào kết quả so khớp i-1 ký tự đầu của s (dp[i-1][j])
                 }
             } else {
                 dp[i][j] = false;
@@ -44,51 +44,6 @@ bool DP_isMatch(string s, string p) {
     // Return the result
     return dp[m][n];
 }
-
-// //Two pointers approach
-// bool TwoPointer_isMatch(string s, string p) {
-//     int m = s.length();
-//     int n = p.length();
-
-//     int i = 0, j = 0;
-//     int pidx = -1, sidx = -1;
-
-//     while (i < m) {
-//         if (j < n && (p[j] == s[i] || p[j] == '.')) {
-//             ++i;
-//             ++j;
-//         } else if (j < n && p[j] == '*') {
-//             bool match_skip_prev_pj = p[j-2] == s[i];
-//             if (match_skip_prev_pj){
-//                 sidx = i;
-//                 pidx = j;
-//                 i++; j++;
-//             }else{
-//                 if (p[j-1] == '.' || p[j-1] == s[i]){
-//                     pidx = j - 1;
-//                     sidx = i;
-//                     i++;
-//                 }else{
-//                     j += 2;
-//                 }
-//             }
-//         } else if (pidx == -1) {
-//             return false;
-//         } else {
-//             j = pidx + 1;
-//             i = sidx + 1;
-//             sidx = i;
-//         }
-//     }
-
-//     for (int k = j; k < n; k++) {
-//         if (p[k] != '*') {
-//             return false;
-//         }
-//     }
-
-//     return true;
-// }
 
 int main(){
     string s = "aab";
